@@ -5,6 +5,7 @@ import java.sql.*;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class Login {
 
@@ -41,28 +42,33 @@ public class Login {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 450, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblName = new JLabel("name");
-		lblName.setBounds(41, 75, 58, 15);
+		JLabel lblName = new JLabel("NAME");
+		lblName.setFont(new Font("Ubuntu", Font.BOLD, 14));
+		lblName.setBounds(86, 417, 58, 15);
 		frame.getContentPane().add(lblName);
 		
-		JLabel lblPassword = new JLabel("password");
-		lblPassword.setBounds(41, 135, 58, 15);
+		JLabel lblPassword = new JLabel("PASSWORD");
+		lblPassword.setFont(new Font("Ubuntu", Font.BOLD, 14));
+		lblPassword.setBounds(86, 492, 105, 15);
 		frame.getContentPane().add(lblPassword);
 		
 		txtUserName = new JTextField();
-		txtUserName.setBounds(186, 73, 145, 19);
+		txtUserName.setFont(new Font("Ubuntu", Font.BOLD, 18));
+		txtUserName.setBounds(196, 408, 180, 34);
 		frame.getContentPane().add(txtUserName);
 		txtUserName.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(186, 133, 145, 19);
+		passwordField.setFont(new Font("Ubuntu", Font.BOLD, 18));
+		passwordField.setEchoChar('*');
+		passwordField.setBounds(196, 483, 180, 34);
 		frame.getContentPane().add(passwordField);
 		
-		JButton btnLogin = new JButton("login");
+		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -97,7 +103,7 @@ public class Login {
 				
 			}
 		});
-		btnLogin.setBounds(123, 188, 105, 25);
+		btnLogin.setBounds(86, 565, 290, 42);
 		frame.getContentPane().add(btnLogin);
 	}
 }

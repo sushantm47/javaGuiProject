@@ -23,7 +23,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 
-public class ViewEmp extends JFrame {
+public class ViewVehicle extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -35,7 +35,7 @@ public class ViewEmp extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ViewEmp frame = new ViewEmp();
+					ViewVehicle frame = new ViewVehicle();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +52,7 @@ public class ViewEmp extends JFrame {
 	private JTextField txtCurrentName;
 	private JTextField txtUpdatingAttribute;
 	private JTextField txtUpdatingData;
-	public ViewEmp() {
+	public ViewVehicle() {
 		connection=sqliteConnection.dbConnector();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800	, 800);
@@ -68,10 +68,10 @@ public class ViewEmp extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		JButton btnAdd = new JButton("show");
+		JButton btnAdd = new JButton("Display");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String querry ="select * from Employee";
+				String querry ="select * from Vehicle";
 				PreparedStatement psst;
 				try {
 					psst = connection.prepareStatement(querry);
@@ -102,7 +102,7 @@ public class ViewEmp extends JFrame {
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String querry ="update Employee set '"+txtUpdatingAttribute.getText()+"'='"+txtUpdatingData.getText()+"' where name=?";
+				String querry ="update Vehicle set '"+txtUpdatingAttribute.getText()+"'='"+txtUpdatingData.getText()+"' where regNum=?";
 
 				PreparedStatement psst;
 				try {
@@ -117,7 +117,7 @@ public class ViewEmp extends JFrame {
 
 					JOptionPane.showMessageDialog(null,"DATA mOdified");
 					dispose();
-					ViewEmp n1=new ViewEmp();
+					ViewVehicle n1=new ViewVehicle();
 					n1.setVisible(true);
 					psst.close();
 					
@@ -131,7 +131,7 @@ public class ViewEmp extends JFrame {
 		contentPane.add(btnUpdate);
 		
 		txtCurrentName = new JTextField();
-		txtCurrentName.setText("Current Name");
+		txtCurrentName.setText("Model Name");
 		txtCurrentName.setBounds(114, 436, 175, 31);
 		contentPane.add(txtCurrentName);
 		txtCurrentName.setColumns(10);
@@ -148,9 +148,9 @@ public class ViewEmp extends JFrame {
 		txtUpdatingData.setBounds(548, 436, 164, 31);
 		contentPane.add(txtUpdatingData);
 		
-		JLabel lblNewLabel = new JLabel("UPDATE DATA");
+		JLabel lblNewLabel = new JLabel("UPDATE VEHICLE DATA");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblNewLabel.setBounds(355, 356, 198, 53);
+		lblNewLabel.setBounds(323, 356, 259, 53);
 		contentPane.add(lblNewLabel);
 	}
 }
