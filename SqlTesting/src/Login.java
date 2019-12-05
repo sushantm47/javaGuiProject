@@ -85,15 +85,17 @@ public class Login {
 					pst.setString(1, txtUserName.getText());
 					pst.setString(2, passwordField.getText());
 					ResultSet rs=pst.executeQuery();
+					
 					int count=0;
 					
 					while(rs.next()) {
 						count++;
 					}
 					if(count == 1) {
-						JOptionPane.showMessageDialog(null,"Usernsame and password is correcct ");
+						//JOptionPane.showMessageDialog(null,"Usernsame and password is correcct ");
 						Navigator n1=Navigator.getInstance();
 						n1.setVisible(true);
+						
 					}
 					else if(count>1) {
 						JOptionPane.showMessageDialog(null,"DUPLICATE Usernsame and password ");
@@ -115,8 +117,8 @@ public class Login {
 		frame.getContentPane().add(btnLogin);
 		
 		JLabel Img = new JLabel("");
-		Img.setBounds(113, 95, 252, 242);
-		Image img=new ImageIcon(this.getClass().getResource("/rsz_uuser.png")).getImage();
+		Img.setBounds(99, 87, 264, 256);
+		Image img=new ImageIcon(this.getClass().getResource("/rsz_user1.png")).getImage();
 		Img.setIcon(new ImageIcon(img));
 		frame.getContentPane().add(Img);
 	}

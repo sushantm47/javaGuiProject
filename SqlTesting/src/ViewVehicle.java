@@ -73,6 +73,7 @@ public class ViewVehicle extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton btnAdd = new JButton("Display");
+		btnAdd.setBackground(Color.WHITE);
 		btnAdd.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -94,6 +95,8 @@ public class ViewVehicle extends JFrame {
 		contentPane.add(btnAdd);
 		
 		JButton btnHome = new JButton("HOME");
+		btnHome.setBackground(Color.WHITE);
+		btnHome.setIcon(new ImageIcon("/home/vettel/Downloads/rsz_home.png"));
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -101,10 +104,11 @@ public class ViewVehicle extends JFrame {
 				n1.setVisible(true);
 			}
 		});
-		btnHome.setBounds(647, 47, 105, 25);
+		btnHome.setBounds(647, 47, 107, 37);
 		contentPane.add(btnHome);
 		
 		JButton btnUpdate = new JButton("UPDATE");
+		btnUpdate.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String querry ="update Vehicle set '"+txtUpdatingAttribute.getText()+"'='"+txtUpdatingData.getText()+"' where regNum=?";
@@ -160,9 +164,9 @@ public class ViewVehicle extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel Img = new JLabel("");
-		Image img=new ImageIcon(this.getClass().getResource("/rsz_showvehicles.png")).getImage();
+		Image img=new ImageIcon(this.getClass().getResource("/rs_Tesla.png")).getImage();
 		Img.setIcon(new ImageIcon(img));
-		Img.setBounds(279, 47, 274, 223);
+		Img.setBounds(300, 47, 245, 243);
 		contentPane.add(Img);
 	}
 }

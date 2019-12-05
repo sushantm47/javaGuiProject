@@ -150,6 +150,7 @@ public class AddEmployee extends JFrame {
 		contentPane.add(btnAdd);
 		
 		btnHome = new JButton("HOME");
+		btnHome.setIcon(new ImageIcon("/home/vettel/Desktop/projects/college/java/SqlTesting/Images/rsz_home.png"));
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -157,12 +158,12 @@ public class AddEmployee extends JFrame {
 				n1.setVisible(true);
 			}
 		});
-		btnHome.setBounds(333, 12, 105, 25);
+		btnHome.setBounds(317, 12, 103, 37);
 		contentPane.add(btnHome);
 		
 		Img = new JLabel("");
-		Img.setBounds(139, 138, 261, 259);
-		Image img=new ImageIcon(this.getClass().getResource("/rsz_adduser.png")).getImage();
+		Img.setBounds(98, 73, 261, 324);
+		Image img=new ImageIcon(this.getClass().getResource("/rsz_userplus.png")).getImage();
 		Img.setIcon(new ImageIcon(img));
 		contentPane.add(Img);
 	}

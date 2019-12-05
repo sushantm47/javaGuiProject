@@ -73,49 +73,49 @@ public class AddVehicle extends JFrame {
 		JLabel lblName = new JLabel("Model");
 		lblName.setForeground(Color.WHITE);
 		lblName.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblName.setBounds(83, 398, 58, 15);
+		lblName.setBounds(79, 340, 82, 32);
 		contentPane.add(lblName);
 		
 		JLabel lblPhonenum = new JLabel("PhoneNum");
 		lblPhonenum.setForeground(Color.WHITE);
 		lblPhonenum.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblPhonenum.setBounds(79, 517, 103, 30);
+		lblPhonenum.setBounds(79, 465, 103, 30);
 		contentPane.add(lblPhonenum);
 		
 		JLabel lblAddress = new JLabel("Type Of Vehicle");
 		lblAddress.setForeground(Color.WHITE);
 		lblAddress.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblAddress.setBounds(79, 647, 151, 28);
+		lblAddress.setBounds(79, 589, 151, 28);
 		contentPane.add(lblAddress);
 		
 		JLabel lblSpecializes = new JLabel("CurrentOdo");
 		lblSpecializes.setForeground(Color.WHITE);
 		lblSpecializes.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblSpecializes.setBounds(79, 600, 103, 35);
+		lblSpecializes.setBounds(79, 542, 103, 35);
 		contentPane.add(lblSpecializes);
 		
 		txtname = new JTextField();
 		txtname.setFont(new Font("Dialog", Font.PLAIN, 16));
-		txtname.setBounds(263, 389, 135, 32);
+		txtname.setBounds(263, 340, 135, 32);
 		contentPane.add(txtname);
 		txtname.setColumns(10);
 		
 		txtph = new JTextField();
 		txtph.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtph.setColumns(10);
-		txtph.setBounds(263, 518, 135, 29);
+		txtph.setBounds(263, 466, 135, 29);
 		contentPane.add(txtph);
 		
 		txtodo2 = new JTextField();
 		txtodo2.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtodo2.setColumns(10);
-		txtodo2.setBounds(263, 602, 135, 32);
+		txtodo2.setBounds(263, 550, 135, 32);
 		contentPane.add(txtodo2);
 		
 		txttypvehicle = new JTextField();
 		txttypvehicle.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txttypvehicle.setColumns(10);
-		txttypvehicle.setBounds(263, 646, 135, 29);
+		txttypvehicle.setBounds(263, 594, 135, 29);
 		contentPane.add(txttypvehicle);
 		
 		btnAdd = new JButton("Add");
@@ -154,10 +154,11 @@ public class AddVehicle extends JFrame {
 				}
 				}
 		});
-		btnAdd.setBounds(83, 687, 315, 42);
+		btnAdd.setBounds(83, 652, 315, 42);
 		contentPane.add(btnAdd);
 		
 		btnHome = new JButton("HOME");
+		btnHome.setIcon(new ImageIcon("/home/vettel/Desktop/projects/college/java/SqlTesting/Images/rsz_home.png"));
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -165,48 +166,48 @@ public class AddVehicle extends JFrame {
 				n1.setVisible(true);
 			}
 		});
-		btnHome.setBounds(314, 12, 105, 25);
+		btnHome.setBounds(314, 12, 108, 46);
 		contentPane.add(btnHome);
 		
 		lblRegistration = new JLabel("Registration Number");
 		lblRegistration.setForeground(Color.WHITE);
 		lblRegistration.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblRegistration.setBounds(83, 440, 176, 15);
+		lblRegistration.setBounds(79, 384, 176, 30);
 		contentPane.add(lblRegistration);
 		
 		txtRegNum = new JTextField();
 		txtRegNum.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtRegNum.setColumns(10);
-		txtRegNum.setBounds(263, 433, 135, 31);
+		txtRegNum.setBounds(263, 381, 135, 31);
 		contentPane.add(txtRegNum);
 		
 		txtCust = new JTextField();
 		txtCust.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtCust.setColumns(10);
-		txtCust.setBounds(263, 476, 135, 30);
+		txtCust.setBounds(263, 424, 135, 30);
 		contentPane.add(txtCust);
 		
 		lblCustomer = new JLabel("Customer");
 		lblCustomer.setForeground(Color.WHITE);
 		lblCustomer.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblCustomer.setBounds(79, 476, 103, 29);
+		lblCustomer.setBounds(79, 426, 103, 29);
 		contentPane.add(lblCustomer);
 		
 		lblLastserviceodo = new JLabel("LastServiceOdo");
 		lblLastserviceodo.setForeground(Color.WHITE);
 		lblLastserviceodo.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblLastserviceodo.setBounds(79, 560, 151, 28);
+		lblLastserviceodo.setBounds(79, 502, 151, 28);
 		contentPane.add(lblLastserviceodo);
 		
 		txtlodo1 = new JTextField();
 		txtlodo1.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtlodo1.setColumns(10);
-		txtlodo1.setBounds(263, 559, 135, 31);
+		txtlodo1.setBounds(263, 507, 135, 31);
 		contentPane.add(txtlodo1);
 		
 		Img = new JLabel("");
-		Img.setBounds(100, 106, 257, 218);
-		Image img=new ImageIcon(this.getClass().getResource("/rsz_addvehicle.png")).getImage();
+		Img.setBounds(131, 92, 221, 205);
+		Image img=new ImageIcon(this.getClass().getResource("/rsz_carimage.png")).getImage();
 		Img.setIcon(new ImageIcon(img));
 		contentPane.add(Img);
 	}

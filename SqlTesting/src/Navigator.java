@@ -6,10 +6,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -108,7 +110,7 @@ class Navigator extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnEmployeeDetails = new JButton("View and Update Employee details");
+		JButton btnEmployeeDetails = new JButton("View Employee details");
 		btnEmployeeDetails.setBackground(Color.WHITE);
 		btnEmployeeDetails.setFont(new Font("Roboto Slab", Font.BOLD, 18));
 		btnEmployeeDetails.addActionListener(new ActionListener() {
@@ -118,10 +120,10 @@ class Navigator extends JFrame {
 				n1.setVisible(true);
 			}
 		});
-		btnEmployeeDetails.setBounds(178, 275, 412, 41);
+		btnEmployeeDetails.setBounds(178, 315, 412, 41);
 		contentPane.add(btnEmployeeDetails);
 		
-		JButton btnVehicleDetails = new JButton("Vehicle details");
+		JButton btnVehicleDetails = new JButton("View Vehicle details");
 		btnVehicleDetails.setBackground(Color.WHITE);
 		btnVehicleDetails.setFont(new Font("Roboto Slab", Font.BOLD, 18));
 		btnVehicleDetails.addActionListener(new ActionListener() {
@@ -131,7 +133,7 @@ class Navigator extends JFrame {
 				n1.setVisible(true);
 			}
 		});
-		btnVehicleDetails.setBounds(178, 381, 412, 46);
+		btnVehicleDetails.setBounds(178, 421, 412, 46);
 		contentPane.add(btnVehicleDetails);
 		
 		JButton btnAddVehicle = new JButton("Add Vehicle");
@@ -144,7 +146,7 @@ class Navigator extends JFrame {
 				a.setVisible(true);
 			}
 		});
-		btnAddVehicle.setBounds(178, 439, 412, 41);
+		btnAddVehicle.setBounds(178, 479, 412, 41);
 		contentPane.add(btnAddVehicle);
 		
 		JButton btnFinance = new JButton("Search");
@@ -157,7 +159,7 @@ class Navigator extends JFrame {
 				n1.setVisible(true);	
 			}
 		});
-		btnFinance.setBounds(178, 493, 412, 46);
+		btnFinance.setBounds(178, 533, 412, 46);
 		contentPane.add(btnFinance);
 		
 		JButton btnAddEmployee = new JButton("Add Employee");
@@ -170,17 +172,26 @@ class Navigator extends JFrame {
 				n1.setVisible(true);
 			}
 		});
-		btnAddEmployee.setBounds(178, 328, 412, 41);
+		btnAddEmployee.setBounds(178, 368, 412, 41);
 		contentPane.add(btnAddEmployee);
 		
-		JButton btnExit = new JButton("EXIT");
+		JButton btnExit = new JButton(" EXIT");
+		btnExit.setBackground(Color.WHITE);
+		btnExit.setFont(new Font("Dialog", Font.BOLD, 16));
+		btnExit.setIcon(new ImageIcon("/home/vettel/Downloads/rsz_exit.png"));
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 			}
 		});
-		btnExit.setBounds(599, 732, 105, 25);
+		btnExit.setBounds(557, 696, 156, 41);
 		contentPane.add(btnExit);
+		
+		JLabel Img = new JLabel("");
+		Img.setBounds(280, 12, 254, 297);
+		Image img=new ImageIcon(this.getClass().getResource("/rs_Tesla.png")).getImage();
+		Img.setIcon(new ImageIcon(img));
+		contentPane.add(Img);
 		
 		/*JButton btnSingleton = new JButton("Singleton");
 		btnSingleton.addActionListener(new ActionListener() {
