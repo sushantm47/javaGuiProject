@@ -19,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class Search extends JFrame {
 
@@ -82,15 +83,18 @@ public class Search extends JFrame {
 		contentPane.add(textField_1);
 		
 		lblVehicle = new JLabel("Vehicle");
-		lblVehicle.setBounds(108, 180, 58, 15);
+		lblVehicle.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblVehicle.setBounds(36, 173, 98, 15);
 		contentPane.add(lblVehicle);
 		
 		lblEmployee = new JLabel("Employee");
-		lblEmployee.setBounds(108, 223, 98, 15);
+		lblEmployee.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblEmployee.setBounds(36, 216, 121, 15);
 		contentPane.add(lblEmployee);
 		
 		lblCustomer = new JLabel("Customer");
-		lblCustomer.setBounds(108, 141, 58, 15);
+		lblCustomer.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblCustomer.setBounds(36, 134, 121, 15);
 		contentPane.add(lblCustomer);
 		
 		txtCust = new JTextField();
@@ -99,6 +103,7 @@ public class Search extends JFrame {
 		contentPane.add(txtCust);
 		
 		JButton btnNewButton = new JButton("Search");
+		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String querry ="Select * from Vehicle  where Customer='"+txtCust.getText()+"'";
@@ -134,10 +139,11 @@ public class Search extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(658, 131, 105, 25);
+		btnNewButton.setBounds(617, 131, 146, 25);
 		contentPane.add(btnNewButton);
 		
 		btnEmployee = new JButton("Search");
+		btnEmployee.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String querry ="Select * from Employee  where name='"+textField_1.getText()+"'";
@@ -160,23 +166,25 @@ public class Search extends JFrame {
 				
 			}
 		});
-		btnEmployee.setBounds(662, 213, 105, 25);
+		btnEmployee.setBounds(617, 216, 146, 25);
 		contentPane.add(btnEmployee);
 		
 		btnHome = new JButton("HOME");
+		btnHome.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 
-				Navigator n1=new Navigator();
+				Navigator n1=Navigator.getInstance();
 				n1.setVisible(true);
 				
 			}
 		});
-		btnHome.setBounds(662, 452, 105, 25);
+		btnHome.setBounds(617, 452, 150, 25);
 		contentPane.add(btnHome);
 		
 		button = new JButton("Search");
+		button.setFont(new Font("Dialog", Font.BOLD, 14));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String querry ="Select * from vehicle  where model='"+textVEhicle.getText()+"'";
@@ -199,7 +207,7 @@ public class Search extends JFrame {
 				
 			}
 		});
-		button.setBounds(662, 170, 105, 25);
+		button.setBounds(617, 173, 146, 25);
 		contentPane.add(button);
 	}
 }

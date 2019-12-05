@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Color;
 
 public class Login {
 
@@ -42,17 +44,20 @@ public class Login {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.DARK_GRAY);
 		frame.setBounds(100, 100, 450, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblName = new JLabel("NAME");
-		lblName.setFont(new Font("Ubuntu", Font.BOLD, 14));
+		lblName.setForeground(Color.WHITE);
+		lblName.setFont(new Font("Ubuntu", Font.BOLD, 16));
 		lblName.setBounds(86, 417, 58, 15);
 		frame.getContentPane().add(lblName);
 		
 		JLabel lblPassword = new JLabel("PASSWORD");
-		lblPassword.setFont(new Font("Ubuntu", Font.BOLD, 14));
+		lblPassword.setForeground(Color.WHITE);
+		lblPassword.setFont(new Font("Ubuntu", Font.BOLD, 16));
 		lblPassword.setBounds(86, 492, 105, 15);
 		frame.getContentPane().add(lblPassword);
 		
@@ -69,10 +74,13 @@ public class Login {
 		frame.getContentPane().add(passwordField);
 		
 		JButton btnLogin = new JButton("LOGIN");
+		btnLogin.setForeground(Color.WHITE);
+		btnLogin.setFont(new Font("Dialog", Font.BOLD, 16));
+		btnLogin.setBackground(Color.GRAY);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String query ="select * from Employee where name=? and id=? ";
+					String query ="select * from Employee where name=? and id=? and admin='True'";
 					PreparedStatement pst=connection.prepareStatement(query);
 					pst.setString(1, txtUserName.getText());
 					pst.setString(2, passwordField.getText());
@@ -84,14 +92,14 @@ public class Login {
 					}
 					if(count == 1) {
 						JOptionPane.showMessageDialog(null,"Usernsame and password is correcct ");
-						Navigator n1=new Navigator();
+						Navigator n1=Navigator.getInstance();
 						n1.setVisible(true);
 					}
 					else if(count>1) {
 						JOptionPane.showMessageDialog(null,"DUPLICATE Usernsame and password ");
 					}
 					else {
-						JOptionPane.showMessageDialog(null,"Usernsame and password is incorrect");
+						JOptionPane.showMessageDialog(null,"Authentication Unsuccessfull");
 					}
 
 					rs.close();
@@ -105,5 +113,11 @@ public class Login {
 		});
 		btnLogin.setBounds(86, 565, 290, 42);
 		frame.getContentPane().add(btnLogin);
+		
+		JLabel Img = new JLabel("");
+		Img.setBounds(113, 95, 252, 242);
+		Image img=new ImageIcon(this.getClass().getResource("/rsz_uuser.png")).getImage();
+		Img.setIcon(new ImageIcon(img));
+		frame.getContentPane().add(Img);
 	}
 }

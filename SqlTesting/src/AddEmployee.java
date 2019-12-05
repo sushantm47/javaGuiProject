@@ -10,6 +10,7 @@ import net.proteanit.sql.DbUtils;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -18,6 +19,9 @@ import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 
 import java.util.Random;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Color;
 public class AddEmployee extends JFrame {
 
 	private JPanel contentPane;
@@ -49,57 +53,74 @@ public class AddEmployee extends JFrame {
 
 	Connection connection=null;
 	private JButton btnHome;
+	private JLabel Img;
 	public AddEmployee() {
 		connection=sqliteConnection.dbConnector();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 700);
+		setBounds(100, 100, 450, 800);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblName = new JLabel("name");
-		lblName.setBounds(38, 73, 58, 15);
+		JLabel lblName = new JLabel("Name");
+		lblName.setForeground(Color.WHITE);
+		lblName.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblName.setBounds(74, 433, 65, 31);
 		contentPane.add(lblName);
 		
-		JLabel lblPhonenum = new JLabel("PhoneNum");
-		lblPhonenum.setBounds(38, 107, 103, 15);
+		JLabel lblPhonenum = new JLabel("Phone Num");
+		lblPhonenum.setForeground(Color.WHITE);
+		lblPhonenum.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblPhonenum.setBounds(74, 480, 93, 32);
 		contentPane.add(lblPhonenum);
 		
 		JLabel lblAddress = new JLabel("Address");
-		lblAddress.setBounds(38, 169, 103, 15);
+		lblAddress.setForeground(Color.WHITE);
+		lblAddress.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblAddress.setBounds(74, 573, 103, 31);
 		contentPane.add(lblAddress);
 		
-		JLabel lblSpecializes = new JLabel("specializes");
-		lblSpecializes.setBounds(38, 134, 103, 23);
+		JLabel lblSpecializes = new JLabel("Specializes");
+		lblSpecializes.setForeground(Color.WHITE);
+		lblSpecializes.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblSpecializes.setBounds(74, 524, 103, 37);
 		contentPane.add(lblSpecializes);
 		
 		txtname = new JTextField();
-		txtname.setBounds(135, 71, 124, 19);
+		txtname.setFont(new Font("Dialog", Font.PLAIN, 16));
+		txtname.setBounds(171, 431, 207, 33);
 		contentPane.add(txtname);
 		txtname.setColumns(10);
 		
 		txtph = new JTextField();
+		txtph.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtph.setColumns(10);
-		txtph.setBounds(135, 103, 124, 19);
+		txtph.setBounds(171, 476, 207, 36);
 		contentPane.add(txtph);
 		
 		txtspl = new JTextField();
+		txtspl.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtspl.setColumns(10);
-		txtspl.setBounds(135, 134, 124, 19);
+		txtspl.setBounds(171, 524, 207, 33);
 		contentPane.add(txtspl);
 		
 		txtadd = new JTextField();
+		txtadd.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtadd.setColumns(10);
-		txtadd.setBounds(135, 165, 207, 19);
+		txtadd.setBounds(171, 573, 207, 31);
 		contentPane.add(txtadd);
 		
 		btnAdd = new JButton("Add");
+		btnAdd.setBackground(Color.GRAY);
+		btnAdd.setForeground(Color.WHITE);
+		btnAdd.setFont(new Font("Fira Sans Book", Font.BOLD, 23));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Random rand = new Random();   
 				int rand_int1 = rand.nextInt(10);
-				int rand_pswd = rand.nextInt(1000);
+				int rand_pswd = rand.nextInt(10000);
 				try {
 					String querry ="insert into Employee (name,id,phoneNum,workeff,specializes,address) values(?,?,?,?,?,?)";
 					PreparedStatement psst;
@@ -110,7 +131,7 @@ public class AddEmployee extends JFrame {
 					psst.setLong(4,rand_int1);
 					psst.setString(5,txtspl.getText());
 					psst.setString(6,txtadd.getText());
-					 psst.execute();
+					psst.execute();
 					
 
 					JOptionPane.showMessageDialog(null,"DATA ADDED");
@@ -125,18 +146,24 @@ public class AddEmployee extends JFrame {
 				}
 				}
 		});
-		btnAdd.setBounds(38, 203, 105, 25);
+		btnAdd.setBounds(74, 628, 304, 50);
 		contentPane.add(btnAdd);
 		
 		btnHome = new JButton("HOME");
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				Navigator n1=new Navigator();
+				Navigator n1=Navigator.getInstance();
 				n1.setVisible(true);
 			}
 		});
 		btnHome.setBounds(333, 12, 105, 25);
 		contentPane.add(btnHome);
+		
+		Img = new JLabel("");
+		Img.setBounds(139, 138, 261, 259);
+		Image img=new ImageIcon(this.getClass().getResource("/rsz_adduser.png")).getImage();
+		Img.setIcon(new ImageIcon(img));
+		contentPane.add(Img);
 	}
 }

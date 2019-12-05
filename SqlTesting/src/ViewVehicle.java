@@ -1,4 +1,4 @@
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 
 import java.awt.EventQueue;
 
@@ -11,6 +11,7 @@ import net.proteanit.sql.DbUtils;
 
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -21,6 +22,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Color;
 
 
 public class ViewVehicle extends JFrame {
@@ -57,18 +60,20 @@ public class ViewVehicle extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800	, 800);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(29, 99, 747, 187);
+		scrollPane.setBounds(28, 321, 747, 187);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
 		JButton btnAdd = new JButton("Display");
+		btnAdd.setFont(new Font("Dialog", Font.BOLD, 14));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String querry ="select * from Vehicle";
@@ -83,7 +88,7 @@ public class ViewVehicle extends JFrame {
 				}
 			}
 		});
-		btnAdd.setBounds(56, 47, 105, 25);
+		btnAdd.setBounds(31, 257, 164, 37);
 		
 		
 		contentPane.add(btnAdd);
@@ -92,14 +97,14 @@ public class ViewVehicle extends JFrame {
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				Navigator n1=new Navigator();
+				Navigator n1=Navigator.getInstance();
 				n1.setVisible(true);
 			}
 		});
 		btnHome.setBounds(647, 47, 105, 25);
 		contentPane.add(btnHome);
 		
-		JButton btnUpdate = new JButton("Update");
+		JButton btnUpdate = new JButton("UPDATE");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String querry ="update Vehicle set '"+txtUpdatingAttribute.getText()+"'='"+txtUpdatingData.getText()+"' where regNum=?";
@@ -115,7 +120,7 @@ public class ViewVehicle extends JFrame {
 					psst.execute();
 					
 
-					JOptionPane.showMessageDialog(null,"DATA mOdified");
+					JOptionPane.showMessageDialog(null,"DATA Updated");
 					dispose();
 					ViewVehicle n1=new ViewVehicle();
 					n1.setVisible(true);
@@ -127,30 +132,37 @@ public class ViewVehicle extends JFrame {
 				}
 			}
 		});
-		btnUpdate.setBounds(344, 507, 154, 25);
+		btnUpdate.setBounds(326, 654, 164, 43);
 		contentPane.add(btnUpdate);
 		
 		txtCurrentName = new JTextField();
 		txtCurrentName.setText("Model Name");
-		txtCurrentName.setBounds(114, 436, 175, 31);
+		txtCurrentName.setBounds(96, 583, 175, 43);
 		contentPane.add(txtCurrentName);
 		txtCurrentName.setColumns(10);
 		
 		txtUpdatingAttribute = new JTextField();
 		txtUpdatingAttribute.setText("Updating Attribute");
 		txtUpdatingAttribute.setColumns(10);
-		txtUpdatingAttribute.setBounds(344, 436, 164, 31);
+		txtUpdatingAttribute.setBounds(326, 583, 164, 43);
 		contentPane.add(txtUpdatingAttribute);
 		
 		txtUpdatingData = new JTextField();
 		txtUpdatingData.setText("Updating Data");
 		txtUpdatingData.setColumns(10);
-		txtUpdatingData.setBounds(548, 436, 164, 31);
+		txtUpdatingData.setBounds(530, 583, 164, 43);
 		contentPane.add(txtUpdatingData);
 		
 		JLabel lblNewLabel = new JLabel("UPDATE VEHICLE DATA");
+		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblNewLabel.setBounds(323, 356, 259, 53);
+		lblNewLabel.setBounds(300, 518, 259, 53);
 		contentPane.add(lblNewLabel);
+		
+		JLabel Img = new JLabel("");
+		Image img=new ImageIcon(this.getClass().getResource("/rsz_showvehicles.png")).getImage();
+		Img.setIcon(new ImageIcon(img));
+		Img.setBounds(279, 47, 274, 223);
+		contentPane.add(Img);
 	}
 }

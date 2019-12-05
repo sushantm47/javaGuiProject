@@ -11,6 +11,7 @@ import net.proteanit.sql.DbUtils;
 
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -21,6 +22,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 
 
 public class ViewEmp extends JFrame {
@@ -62,7 +64,7 @@ public class ViewEmp extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(29, 99, 747, 187);
+		scrollPane.setBounds(29, 313, 747, 187);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -83,7 +85,7 @@ public class ViewEmp extends JFrame {
 				}
 			}
 		});
-		btnAdd.setBounds(56, 47, 105, 25);
+		btnAdd.setBounds(56, 261, 105, 25);
 		
 		
 		contentPane.add(btnAdd);
@@ -127,30 +129,36 @@ public class ViewEmp extends JFrame {
 				}
 			}
 		});
-		btnUpdate.setBounds(344, 507, 154, 25);
+		btnUpdate.setBounds(344, 663, 154, 25);
 		contentPane.add(btnUpdate);
 		
 		txtCurrentName = new JTextField();
 		txtCurrentName.setText("Current Name");
-		txtCurrentName.setBounds(114, 436, 175, 31);
+		txtCurrentName.setBounds(114, 601, 175, 31);
 		contentPane.add(txtCurrentName);
 		txtCurrentName.setColumns(10);
 		
 		txtUpdatingAttribute = new JTextField();
 		txtUpdatingAttribute.setText("Updating Attribute");
 		txtUpdatingAttribute.setColumns(10);
-		txtUpdatingAttribute.setBounds(344, 436, 164, 31);
+		txtUpdatingAttribute.setBounds(344, 601, 164, 31);
 		contentPane.add(txtUpdatingAttribute);
 		
 		txtUpdatingData = new JTextField();
 		txtUpdatingData.setText("Updating Data");
 		txtUpdatingData.setColumns(10);
-		txtUpdatingData.setBounds(548, 436, 164, 31);
+		txtUpdatingData.setBounds(548, 601, 164, 31);
 		contentPane.add(txtUpdatingData);
 		
 		JLabel lblNewLabel = new JLabel("UPDATE DATA");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblNewLabel.setBounds(355, 356, 198, 53);
+		lblNewLabel.setBounds(355, 521, 198, 53);
 		contentPane.add(lblNewLabel);
+		
+		JLabel Img = new JLabel("");
+		Image img=new ImageIcon(this.getClass().getResource("/rsz_allusers.png")).getImage();
+		Img.setIcon(new ImageIcon(img));
+		Img.setBounds(258, 47, 274, 223);
+		contentPane.add(Img);
 	}
 }
